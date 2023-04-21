@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class SkillTree : MonoBehaviour
 {
-    bool[] upgradesGotten;
-    int[] prerequisites = {0, 1, 2, 3, 3, 4};
-    string[] buttonNames = {"a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"};
+    bool[] upgradesGotten = {true, false, false, false, false, false, false};
+    int[] prerequisites = {0, 0, 1, 2, 3, 3, 4};
+    string[] buttonNames = new string[7];
     void Start()
     {
-       // for (int i = 0; i < 10; i++)
-      //  {
-         //   buttonNames.Append("i");
-        //}
+       for (int i = 0; i < 7; i++)
+        {
+            buttonNames[i] = i.ToString();
+        }
     }
 
     // Update is called once per frame
@@ -24,13 +24,12 @@ public class SkillTree : MonoBehaviour
 
     public void Upgrade(GameObject self)
     {
-        print(buttonNames.Length);
-        print(buttonNames[2]);
-        //var index = buttonNames.ToList().IndexOf(self.name);
-        
-       // if (upgradesGotten[prerequisites[index]])
-       // {
-       //     self.SetActive(false);
-       // }
+        var index = buttonNames.ToList().IndexOf(self.name);
+        print(index);
+        if (upgradesGotten[prerequisites[index]])
+        {
+            self.SetActive(false);
+            upgradesGotten[index] = true;
+        }
     }
 }
