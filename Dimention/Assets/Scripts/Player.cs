@@ -1,3 +1,4 @@
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -16,9 +17,13 @@ public class Player : MonoBehaviour
     public GameObject sword;
     Animation anim;
     public int health = 100;
+    bool isCrouched = false;
+    FirstPersonController fpc;
+    public List<string> inventory = new List<string>();
     void Start()
     {
         anim = GetComponentInChildren<Animation>();
+        fpc = GetComponent<FirstPersonController>();
     }
 
     // Update is called once per frame
@@ -66,6 +71,20 @@ public class Player : MonoBehaviour
         else
         {
             swordHitbox.gameObject.SetActive(false);
+        }
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            transform.localScale *= 0.5f;
+            fpc.canSprint = false;
+            fpc.canJump = false;
+            isCrouched = true;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            transform.localScale *= 2;
+            fpc.canSprint = true;
+            fpc.canJump = true;
+            isCrouched = false;
         }
     }
 }

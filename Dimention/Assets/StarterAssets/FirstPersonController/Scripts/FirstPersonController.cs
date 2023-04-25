@@ -16,7 +16,9 @@ namespace StarterAssets
 		public float MoveSpeed = 4.0f;
 		[Tooltip("Sprint speed of the character in m/s")]
 		public float SprintSpeed = 6.0f;
-		[Tooltip("Rotation speed of the character")]
+        [Tooltip("Determines if the character can sprint")]
+        public bool canSprint = true;
+        [Tooltip("Rotation speed of the character")]
 		public float RotationSpeed = 1.0f;
 		[Tooltip("Acceleration and deceleration")]
 		public float SpeedChangeRate = 10.0f;
@@ -24,7 +26,9 @@ namespace StarterAssets
 		[Space(10)]
 		[Tooltip("The height the player can jump")]
 		public float JumpHeight = 1.2f;
-		[Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
+        [Tooltip("Determines if the character can jump")]
+        public bool canJump = true;
+        [Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
 		public float Gravity = -15.0f;
 
 		[Space(10)]
@@ -154,7 +158,12 @@ namespace StarterAssets
 		private void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
-			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+			bool isSprinting = _input.sprint;
+			if (!canSprint)
+			{
+				isSprinting = false;
+			}
+            float targetSpeed = isSprinting ? SprintSpeed : MoveSpeed;
 
 			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
@@ -210,14 +219,16 @@ namespace StarterAssets
 				{
 					_verticalVelocity = -2f;
 				}
-
-				// Jump
-				if (_input.jump && _jumpTimeoutDelta <= 0.0f)
+                if (!canJump)
+                {
+                    _input.jump = false;
+                }
+                // Jump
+                if (_input.jump && _jumpTimeoutDelta <= 0.0f)
 				{
 					// the square root of H * -2 * G = how much velocity needed to reach desired height
 					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
 				}
-
 				// jump timeout
 				if (_jumpTimeoutDelta >= 0.0f)
 				{
