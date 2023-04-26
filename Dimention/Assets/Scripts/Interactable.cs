@@ -9,6 +9,7 @@ public class Interactable : MonoBehaviour
     float etherealPeriod = 0;
     bool ethereal = false;
     public int type = 0;
+    public GameObject sceneObject;
     void Start()
     {
         
@@ -22,25 +23,35 @@ public class Interactable : MonoBehaviour
         {
             GetComponent<BoxCollider>().enabled = true;
             ethereal = false;
-            print("h");
         }
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (type == 0)
+            switch (type)
             {
-                player.inventory.Add(item);
-                Destroy(gameObject);
-            }
-            else if (type == 1)
-            {
-                gameObject.layer = 7;
-                ethereal = true;
-                etherealPeriod = 0.5f;
-                GetComponent<BoxCollider>().enabled = false;
-                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                case 0:
+                    player.inventory.Add(item);
+                    Destroy(gameObject);
+                    break;
+                case 1:
+                    gameObject.layer = 7;
+                    ethereal = true;
+                    etherealPeriod = 0.5f;
+                    GetComponent<BoxCollider>().enabled = false;
+                    GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                    break;
+                case 3:
+                    if (player.inventory.Contains(item))
+                    {
+                        player.inventory.Remove(item);
+                        Destroy(gameObject);
+                    }
+                    break;
+                case 4:
+                    sceneObject.gameObject.GetComponent<UI>().openMenu();
+                    break;
             }
         }
     }
