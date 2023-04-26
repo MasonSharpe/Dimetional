@@ -54,4 +54,9 @@ public class SkillTree : MonoBehaviour
                 break;
         }
     }
+
+    public void nextLevel()
+    {
+
+    }
 }
