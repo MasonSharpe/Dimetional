@@ -6,6 +6,8 @@ public class Interactable : MonoBehaviour
 {
     public Player player;
     public string item = "NA";
+    float etherealPeriod = 0;
+    bool ethereal = false;
     public int type = 0;
     void Start()
     {
@@ -15,7 +17,13 @@ public class Interactable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        etherealPeriod -= Time.deltaTime;
+        if (etherealPeriod < 0 && ethereal)
+        {
+            GetComponent<BoxCollider>().enabled = true;
+            ethereal = false;
+            print("h");
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -28,6 +36,10 @@ public class Interactable : MonoBehaviour
             }
             else if (type == 1)
             {
+                gameObject.layer = 7;
+                ethereal = true;
+                etherealPeriod = 0.5f;
+                GetComponent<BoxCollider>().enabled = false;
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             }
         }
