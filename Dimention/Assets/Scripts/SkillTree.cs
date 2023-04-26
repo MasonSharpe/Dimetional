@@ -1,3 +1,4 @@
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,7 @@ using UnityEngine;
 public class SkillTree : MonoBehaviour
 {
     bool[] upgradesGotten = {false, false, false, false, false, false};
+    public GameObject player;
     void Start()
     {
 
@@ -37,8 +39,19 @@ public class SkillTree : MonoBehaviour
         }
         if (canUpgrade)
         {
+            applyUpgrade(info.buttonIndex);
             self.SetActive(false);
             upgradesGotten[info.buttonIndex] = true;
+        }
+    }
+
+    public void applyUpgrade(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                player.GetComponent<FirstPersonController>().MoveSpeed += 20;
+                break;
         }
     }
 }
