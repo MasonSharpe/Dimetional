@@ -19,11 +19,14 @@ public class Player : MonoBehaviour
     public int health = 100;
     bool isCrouched = false;
     FirstPersonController fpc;
+    public bool hasSword = false;
     public List<string> inventory = new List<string>();
     void Start()
     {
+        sword.SetActive(true);
         anim = GetComponentInChildren<Animation>();
         fpc = GetComponent<FirstPersonController>();
+        sword.SetActive(hasSword ? true : false);
     }
 
     // Update is called once per frame
