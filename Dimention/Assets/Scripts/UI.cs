@@ -10,7 +10,7 @@ public class UI : MonoBehaviour
     public Slider health;
     public GameObject panel;
     public GameObject skillTree;
-    public bool isInMenu;
+    public bool isInMenu = false;
     void Start()
     {
         skillTree.SetActive(false);
@@ -24,24 +24,24 @@ public class UI : MonoBehaviour
         //Vector2 mouseDir = new Vector2(mousePos.x / Screen.width, mousePos.y / Screen.height);
         //print(panel.transform.position);
         //panel.transform.position = new Vector3(146, 65, 0) + (Vector3)mouseDir * 10;
-        if (Input.GetKeyUp(KeyCode.Escape))
+    }
+    public void openMenu()
+    {
+        if (isInMenu)
         {
-            if (isInMenu)
-            {
-                player.GetComponent<StarterAssetsInputs>().cursorLocked = true;
-                skillTree.SetActive(false);
-                isInMenu = false;
-                Cursor.lockState = CursorLockMode.Locked;
-                Time.timeScale = 1;
-            }
-            else
-            {
-                player.GetComponent<StarterAssetsInputs>().cursorLocked = false;
-                skillTree.SetActive(true);
-                isInMenu = true;
-                Cursor.lockState = CursorLockMode.None;
-                Time.timeScale = 0;
-            }
+            player.GetComponent<StarterAssetsInputs>().cursorLocked = true;
+            skillTree.SetActive(false);
+            isInMenu = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 1;
+        }
+        else
+        {
+            player.GetComponent<StarterAssetsInputs>().cursorLocked = false;
+            skillTree.SetActive(true);
+            isInMenu = true;
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0;
         }
     }
 }
