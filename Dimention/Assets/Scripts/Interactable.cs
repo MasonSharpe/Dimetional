@@ -33,25 +33,28 @@ public class Interactable : MonoBehaviour
             {
                 case 0:
                     player.inventory.Add(item);
-                    Destroy(gameObject);
-                    break;
+                    Destroy(gameObject); break;
                 case 1:
-                    gameObject.layer = 7;
-                    ethereal = true;
-                    etherealPeriod = 0.5f;
-                    GetComponent<BoxCollider>().enabled = false;
-                    GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-                    break;
+                    if (player.hasSword)
+                    {
+                        gameObject.layer = 7;
+                        ethereal = true;
+                        etherealPeriod = 0.5f;
+                        GetComponent<BoxCollider>().enabled = false;
+                        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                    } break;
                 case 3:
                     if (player.inventory.Contains(item))
                     {
                         player.inventory.Remove(item);
                         Destroy(gameObject);
-                    }
-                    break;
+                    } break;
                 case 4:
-                    sceneObject.gameObject.GetComponent<UI>().openMenu();
-                    break;
+                    sceneObject.gameObject.GetComponent<UI>().openMenu(); break;
+                case 5:
+                    sceneObject.gameObject.SetActive(true);
+                    player.hasSword = true;
+                    Destroy(gameObject); break;
             }
         }
     }

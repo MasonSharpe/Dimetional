@@ -8,6 +8,7 @@ public class SkillTree : MonoBehaviour
 {
     bool[] upgradesGotten = {false, false, false, false, false, false};
     public GameObject player;
+    string[] descriptions = {"hi", "bye"};
     void Start()
     {
 
@@ -56,6 +57,11 @@ public class SkillTree : MonoBehaviour
     }
 
     public void nextLevel()
+    {
+
+    }
+
+    public void updateDescription()
     {
 
     }
