@@ -1,6 +1,7 @@
 using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -21,6 +22,8 @@ public class Player : MonoBehaviour
     FirstPersonController fpc;
     public bool hasSword = false;
     public List<string> inventory = new List<string>();
+    public GameObject interText;
+    public bool inRange = false;
     void Start()
     {
         sword.SetActive(true);
@@ -59,14 +62,35 @@ public class Player : MonoBehaviour
             hitDelay = 1;
             comboTimer = 1.3f;
         }
+        interText.SetActive(false);
+        inRange = false;
+        RaycastHit hit;
+        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+        if (Physics.Raycast(ray, out hit, 6))
+        {
+            if (hit.collider.gameObject.tag == "Interactable")
+            {
+                interText.SetActive(true);
+                hit.collider.GetComponent<Interactable>().inRange = true;
+                inRange = true;
+
+            }
+        }
         if (Input.GetMouseButtonDown(1) && hitDelay < 0)
         {
-            var bulletInstance = Instantiate(bullet, transform.position, Quaternion.identity);
-            bulletInstance.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * bulletSpeed;
-            bulletInstance.transform.Translate(Vector3.up);
-            Destroy(bulletInstance, 2);
+            if (Physics.Raycast(ray, out hit, 20))
+            {
+                if (hit.collider.gameObject.layer == 9)
+                {
+                    hit.collider.gameObject.GetComponent<Enemy>().takeDamage(15);
+                }
+            }
             hitDelay = 1;
         }
+        // var bulletInstance = Instantiate(bullet, transform.position, Quaternion.identity);
+        //bulletInstance.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * bulletSpeed;
+        // bulletInstance.transform.Translate(Vector3.up);
+        // Destroy(bulletInstance, 2);
         if (hitLength > 0)
         {
             swordHitbox.gameObject.SetActive(true);
