@@ -8,6 +8,7 @@ public class UI : MonoBehaviour
 {
     public GameObject player;
     public Slider health;
+    public Slider energy;
     public GameObject panel;
     public GameObject skillTree;
     public bool isInMenu = false;
@@ -20,6 +21,7 @@ public class UI : MonoBehaviour
     void Update()
     {
         health.value = player.GetComponent<Player>().health;
+        energy.value = player.GetComponent<Player>().energy;
         // Vector2 mousePos = Input.mousePosition;
         //Vector2 mouseDir = new Vector2(mousePos.x / Screen.width, mousePos.y / Screen.height);
         //print(panel.transform.position);
