@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float health = 100;
+    public Player player;
     void Start()
     {
         
@@ -14,5 +15,10 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void takeDamage(float damage)
+    {
+
     }
 }

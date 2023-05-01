@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 715445373950940697}
   m_Layer: 0
   m_Name: Box
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,3 +149,4 @@ MonoBehaviour:
   player: {fileID: 0}
   item: NA
   type: 2
+  sceneObject: {fileID: 0}
