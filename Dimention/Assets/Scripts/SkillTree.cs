@@ -5,12 +5,15 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class SkillTree : MonoBehaviour
 {
-    bool[] upgradesGotten = { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false };
+    public bool[] upgradesGotten = { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false };
     public GameObject player;
     public TextMeshProUGUI text;
+    public TextMeshProUGUI pointsLeft;
+    int points = 3;
     string[] descriptions = {
         "Increase Sword attack speed.",
         "Increase Sword damage.",
@@ -39,7 +42,7 @@ public class SkillTree : MonoBehaviour
     };
     void Start()
     {
-        EventTrigger trigger = GetComponent<EventTrigger>();
+        
     }
 
     // Update is called once per frame
@@ -66,27 +69,48 @@ public class SkillTree : MonoBehaviour
                 }
             }
         }
-        if (canUpgrade)
+        if (canUpgrade && points > 0)
         {
             applyUpgrade(info.buttonIndex);
             self.SetActive(false);
             upgradesGotten[info.buttonIndex] = true;
+            points--;
+            pointsLeft.text = "Points left: " + points.ToString();
         }
     }
 
     public void applyUpgrade(int index)
     {
-        switch (index)
-        {
+            switch (index)
+            {
             case 0:
-                player.GetComponent<FirstPersonController>().MoveSpeed += 20;
-                break;
+                player.GetComponent<FirstPersonController>().MoveSpeed += 20; break;
+            case 1:
+                player.GetComponent<FirstPersonController>().MoveSpeed += 20; break;
+            case 2:
+                player.GetComponent<FirstPersonController>().MoveSpeed += 20; break;
+            case 3:
+                player.GetComponent<FirstPersonController>().MoveSpeed += 20; break;
+            case 4:
+                player.GetComponent<FirstPersonController>().MoveSpeed += 20; break;
+            case 5:
+                player.GetComponent<FirstPersonController>().MoveSpeed += 20; break;
+            case 6:
+                player.GetComponent<FirstPersonController>().MoveSpeed += 20; break;
+            case 7:
+                player.GetComponent<FirstPersonController>().MoveSpeed += 20; break;
+            case 8:
+                player.GetComponent<FirstPersonController>().MoveSpeed += 20; break;
+            case 9:
+                player.GetComponent<FirstPersonController>().MoveSpeed += 20; break;
+            case 10:
+                player.GetComponent<FirstPersonController>().MoveSpeed += 20; break;
         }
     }
 
     public void nextLevel()
     {
-
+        SceneManager.LoadScene("level " + player.GetComponent<Player>().level.ToString());
     }
 
     public void updateDescription(int index)

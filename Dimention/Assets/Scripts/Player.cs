@@ -11,10 +11,9 @@ public class Player : MonoBehaviour
     float hitLength = 0;
     float hitDelay = 0;
     int comboIndex = 0;
-    public float swordDamage;
     float comboTimer;
     public GameObject bullet;
-    float bulletSpeed = 5;
+    float bulletSpeed = 40;
     public GameObject sword;
     Animation anim;
     public int health = 100;
@@ -24,12 +23,19 @@ public class Player : MonoBehaviour
     public List<string> inventory = new List<string>();
     public GameObject interText;
     public bool inRange = false;
+    public float energy = 100;
+    public int enemiesInRoom = 0;
+    public int enemiesKilled = 0;
+    public int level = 0;
+    public SkillTree skillTree;
+    bool[] info;
     void Start()
     {
         sword.SetActive(true);
         anim = GetComponentInChildren<Animation>();
         fpc = GetComponent<FirstPersonController>();
         sword.SetActive(hasSword ? true : false);
+        info = skillTree.upgradesGotten;
     }
 
     // Update is called once per frame
@@ -38,10 +44,11 @@ public class Player : MonoBehaviour
         hitLength -= Time.deltaTime;
         hitDelay -= Time.deltaTime;
         comboTimer -= Time.deltaTime;
-        if (Input.GetMouseButtonDown(0) && hitDelay < 0)
+        energy += Time.deltaTime * 10;
+        if (Input.GetMouseButtonDown(0) && hitDelay < 0 && energy != 0 && hasSword)
         {
+            energy = Mathf.Clamp(energy - 25, 0, 100);
             swordHitbox.gameObject.transform.rotation = gameObject.transform.rotation;
-            swordDamage = 10;
             if(comboTimer < 0)
             {
                 comboIndex = 0;
@@ -50,7 +57,6 @@ public class Player : MonoBehaviour
             {
                 swordHitbox.transform.Rotate(0, 0, 90);
                 comboIndex = -1;
-                swordDamage = 30;
                 anim.Play("Swing Combo");
             }
             else
@@ -58,7 +64,7 @@ public class Player : MonoBehaviour
                 anim.Play("Sword Swing");
             }
             comboIndex += 1;
-            hitLength = 0.5f;
+            hitLength = 1f;
             hitDelay = 1;
             comboTimer = 1.3f;
         }
@@ -76,22 +82,23 @@ public class Player : MonoBehaviour
 
             }
         }
-        if (Input.GetMouseButtonDown(1) && hitDelay < 0)
+        if (Input.GetMouseButtonDown(1) && hitDelay < 0 && hasSword)
         {
-            if (Physics.Raycast(ray, out hit, 20))
+            if (Physics.Raycast(ray, out hit, 100) && hit.collider.gameObject.layer == 9)
             {
-                if (hit.collider.gameObject.layer == 9)
-                {
-                    hit.collider.gameObject.GetComponent<Enemy>().takeDamage(15);
-                }
+                 hit.collider.gameObject.GetComponent<Enemy>().takeDamage(15);
+            }
+            else
+            {
+                 var bulletInstance = Instantiate(bullet, transform.position, Quaternion.identity);
+                 bulletInstance.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * bulletSpeed;
+                 bulletInstance.transform.Translate(new Vector3(0, 1, 0) * 2.7f);
+                 Destroy(bulletInstance, 2);
             }
             hitDelay = 1;
+            energy = Mathf.Clamp(energy - 10, 0, 100);
         }
-        // var bulletInstance = Instantiate(bullet, transform.position, Quaternion.identity);
-        //bulletInstance.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * bulletSpeed;
-        // bulletInstance.transform.Translate(Vector3.up);
-        // Destroy(bulletInstance, 2);
-        if (hitLength > 0)
+        if (hitLength < (info[0] ? 0.75f : 0.5f) && hitLength > 0.2f)
         {
             swordHitbox.gameObject.SetActive(true);
         }
