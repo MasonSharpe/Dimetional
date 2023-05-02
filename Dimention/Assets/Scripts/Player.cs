@@ -10,13 +10,13 @@ public class Player : MonoBehaviour
     public GameObject swordHitbox;
     float hitLength = 0;
     float hitDelay = 0;
-    int comboIndex = 0;
+    public int comboIndex = 0;
     float comboTimer;
     public GameObject bullet;
     float bulletSpeed = 40;
     public GameObject sword;
     Animation anim;
-    public int health = 100;
+    public float health = 100;
     bool isCrouched = false;
     FirstPersonController fpc;
     public bool hasSword = false;
@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
         anim = GetComponentInChildren<Animation>();
         fpc = GetComponent<FirstPersonController>();
         sword.SetActive(hasSword ? true : false);
+        swordHitbox.gameObject.transform.localScale *= info[4] ? 1.5f : 1;
         info = skillTree.upgradesGotten;
     }
 
@@ -86,7 +87,14 @@ public class Player : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit, 100) && hit.collider.gameObject.layer == 9)
             {
-                 hit.collider.gameObject.GetComponent<Enemy>().takeDamage(15);
+                hit.collider.gameObject.GetComponent<Enemy>().takeDamage(info[8] ? 25 : 15);
+                 comboIndex += 1;
+                 comboTimer = 1.3f;
+                if (comboIndex == 2)
+                {
+                    hit.collider.gameObject.GetComponent<Enemy>().takeDamage(info[8] ? 45 : 30 * (info[9] ? 1.35f : 1));
+                    comboIndex = -1;
+                }
             }
             else
             {
@@ -95,7 +103,7 @@ public class Player : MonoBehaviour
                  bulletInstance.transform.Translate(new Vector3(0, 1, 0) * 2.7f);
                  Destroy(bulletInstance, 2);
             }
-            hitDelay = 1;
+            hitDelay = info[7] ? 0.7f : 1;
             energy = Mathf.Clamp(energy - 10, 0, 100);
         }
         if (hitLength < (info[0] ? 0.75f : 0.5f) && hitLength > 0.2f)
@@ -119,6 +127,16 @@ public class Player : MonoBehaviour
             fpc.canSprint = true;
             fpc.canJump = true;
             isCrouched = false;
+        }
+    }
+
+    public void takeDamage(float damage)
+    {
+        damage *= info[5] && hitLength > 0.2f ? 1.5f : 1;
+        health -= damage;
+        if (health < 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
