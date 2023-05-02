@@ -58,6 +58,8 @@ public class Interactable : MonoBehaviour
                         sceneObject.gameObject.SetActive(true);
                         player.hasSword = true;
                         Destroy(gameObject); break;
+                    case 6:
+                    player.skillPoints++; break;
                 }
         }
         inRange = false;

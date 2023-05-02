@@ -42,7 +42,8 @@ public class SkillTree : MonoBehaviour
     };
     void Start()
     {
-        
+        points = player.GetComponent<Player>().skillPoints;
+        pointsLeft.text = points.ToString();
     }
 
     // Update is called once per frame
@@ -110,7 +111,7 @@ public class SkillTree : MonoBehaviour
 
     public void nextLevel()
     {
-        SceneManager.LoadScene("level " + player.GetComponent<Player>().level.ToString());
+        SceneManager.LoadScene("level " + (player.GetComponent<Player>().level + 1).ToString());
     }
 
     public void updateDescription(int index)

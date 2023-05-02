@@ -28,11 +28,13 @@ public class Player : MonoBehaviour
     public int enemiesKilled = 0;
     public int level = 0;
     public SkillTree skillTree;
+    public int skillPoints = 0;
     bool[] info;
     void Start()
     {
         info = skillTree.upgradesGotten;
         sword.SetActive(true);
+        hasSword = level == 1 ? false : true;
         anim = GetComponentInChildren<Animation>();
         fpc = GetComponent<FirstPersonController>();
         sword.SetActive(hasSword ? true : false);

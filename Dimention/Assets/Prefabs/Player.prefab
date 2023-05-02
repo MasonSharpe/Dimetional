@@ -185,7 +185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8919217742445735958
 Transform:
   m_ObjectHideFlags: 0
@@ -342,6 +342,7 @@ GameObject:
   - component: {fileID: 4671366320236948983}
   - component: {fileID: 2936820042902978604}
   - component: {fileID: 5512207142257251683}
+  - component: {fileID: 1496152828280046215}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -408,18 +409,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55919ac34a26952479f3fc91f777b2fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 3
-  SprintSpeed: 6
+  MoveSpeed: 10
+  SprintSpeed: 20
   canSprint: 1
   RotationSpeed: 4
   SpeedChangeRate: 10
-  JumpHeight: 1.2
+  JumpHeight: 3
   canJump: 1
   Gravity: -15
   JumpTimeout: 0.1
   FallTimeout: 0.15
   Grounded: 1
-  GroundedOffset: -0.14
+  GroundedOffset: 5
   GroundedRadius: 0.5
   GroundLayers:
     serializedVersion: 2
@@ -427,6 +428,7 @@ MonoBehaviour:
   CinemachineCameraTarget: {fileID: 8643324544126387893}
   TopClamp: 89
   BottomClamp: -89
+  ui: {fileID: 0}
 --- !u!114 &4154760479297265919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,11 +578,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordHitbox: {fileID: 8746187558673624129}
-  swordDamage: 0
+  comboIndex: 0
   bullet: {fileID: 1285276964121392045, guid: cb94d14d9ff13a7439983da7cdd26bd3, type: 3}
   sword: {fileID: 3688039738723384804}
   health: 100
+  hasSword: 0
   inventory: []
+  interText: {fileID: 0}
+  inRange: 0
+  energy: 100
+  enemiesInRoom: 0
+  enemiesKilled: 0
+  level: 0
+  skillTree: {fileID: 0}
+--- !u!114 &1496152828280046215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7452314842269616860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41448e70e03c41459abf7cda4d2f0ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8643324544126387893
 GameObject:
   m_ObjectHideFlags: 0
