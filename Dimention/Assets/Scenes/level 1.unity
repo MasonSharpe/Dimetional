@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 44856684}
   - component: {fileID: 44856686}
   - component: {fileID: 44856685}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -714,7 +714,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh160554
+  m_Name: pb_Mesh29562
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -2124,7 +2124,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh160778
+  m_Name: pb_Mesh29786
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -2954,7 +2954,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh160684
+  m_Name: pb_Mesh29692
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -5619,52 +5619,52 @@ PrefabInstance:
     - target: {fileID: -8391222552659086748, guid: 21cc9843616fe1b4ba3fcf228f386b50,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7640558969779515294, guid: 21cc9843616fe1b4ba3fcf228f386b50,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7146521406498821007, guid: 21cc9843616fe1b4ba3fcf228f386b50,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6763858364670572316, guid: 21cc9843616fe1b4ba3fcf228f386b50,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2045257923548263128, guid: 21cc9843616fe1b4ba3fcf228f386b50,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1599826595754709761, guid: 21cc9843616fe1b4ba3fcf228f386b50,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -516098083770646512, guid: 21cc9843616fe1b4ba3fcf228f386b50,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -466329591000292508, guid: 21cc9843616fe1b4ba3fcf228f386b50,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -208595431880416365, guid: 21cc9843616fe1b4ba3fcf228f386b50,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 281855664364225751, guid: 21cc9843616fe1b4ba3fcf228f386b50,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 21cc9843616fe1b4ba3fcf228f386b50,
         type: 3}
@@ -5674,12 +5674,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 21cc9843616fe1b4ba3fcf228f386b50,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8009987137999418058, guid: 21cc9843616fe1b4ba3fcf228f386b50,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5688,6 +5688,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1971070508}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 21cc9843616fe1b4ba3fcf228f386b50,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1960342690}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 21cc9843616fe1b4ba3fcf228f386b50,
         type: 3}
@@ -5712,7 +5716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1418226490}
   - component: {fileID: 1418226491}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6540,7 +6544,7 @@ GameObject:
   - component: {fileID: 1691263589}
   - component: {fileID: 1691263591}
   - component: {fileID: 1691263590}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8560,6 +8564,59 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1801034502}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1960342689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1960342690}
+  - component: {fileID: 1960342691}
+  m_Layer: 9
+  m_Name: Hurtbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1960342690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960342689}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 980056179}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1960342691
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960342689}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5940657, y: 9.433063, z: 3.0532742}
+  m_Center: {x: -0.09368181, y: 4.2165313, z: 2.824307}
 --- !u!1 &1971070504
 GameObject:
   m_ObjectHideFlags: 0
@@ -8572,7 +8629,7 @@ GameObject:
   - component: {fileID: 1971070507}
   - component: {fileID: 1971070506}
   - component: {fileID: 1971070505}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8794,7 +8851,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2102217375}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
