@@ -31,12 +31,12 @@ public class Player : MonoBehaviour
     bool[] info;
     void Start()
     {
+        info = skillTree.upgradesGotten;
         sword.SetActive(true);
         anim = GetComponentInChildren<Animation>();
         fpc = GetComponent<FirstPersonController>();
         sword.SetActive(hasSword ? true : false);
         swordHitbox.gameObject.transform.localScale *= info[4] ? 1.5f : 1;
-        info = skillTree.upgradesGotten;
     }
 
     // Update is called once per frame
@@ -138,5 +138,14 @@ public class Player : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 9)
+        {
+            takeDamage(25);
+        }
+
     }
 }
