@@ -55,6 +55,7 @@ namespace StarterAssets
 		[Tooltip("How far in degrees can you move the camera down")]
 		public float BottomClamp = -90.0f;
 		public UI ui;
+		Player player;
 
 		// cinemachine
 		private float _cinemachineTargetPitch;
@@ -106,6 +107,7 @@ namespace StarterAssets
 			_input = GetComponent<StarterAssetsInputs>();
 #if ENABLE_INPUT_SYSTEM
 			_playerInput = GetComponent<PlayerInput>();
+			player = GetComponent<Player>();
 #else
 			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
@@ -160,7 +162,11 @@ namespace StarterAssets
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
 			bool isSprinting = _input.sprint;
-			if (!canSprint)
+            if (isSprinting)
+            {
+                player.energy = Mathf.Clamp(player.energy - Time.deltaTime * 20, 0, 100);
+            }
+            if (!canSprint || player.energy == 0)
 			{
 				isSprinting = false;
 			}

@@ -50,7 +50,10 @@ public class Interactable : MonoBehaviour
                         }
                         break;
                     case 4:
-                        sceneObject.gameObject.GetComponent<UI>().openMenu(); break;
+                    if (player.enemiesInRoom == player.enemiesKilled)
+                    {
+                        sceneObject.gameObject.GetComponent<UI>().openMenu();
+                    }  break;
                     case 5:
                         sceneObject.gameObject.SetActive(true);
                         player.hasSword = true;
@@ -61,6 +64,9 @@ public class Interactable : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-
+        if (type == 4)
+        {
+            sceneObject.gameObject.GetComponent<UI>().openMenu();
+        }
     }
 }
