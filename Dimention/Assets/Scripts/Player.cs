@@ -47,10 +47,10 @@ public class Player : MonoBehaviour
         hitLength -= Time.deltaTime;
         hitDelay -= Time.deltaTime;
         comboTimer -= Time.deltaTime;
-        energy += Time.deltaTime * 10;
+        energy += Time.deltaTime * 30;
         if (Input.GetMouseButtonDown(0) && hitDelay < 0 && energy != 0 && hasSword)
         {
-            energy = Mathf.Clamp(energy - 25, 0, 100);
+            energy = Mathf.Clamp(energy - 45, 0, 100);
             swordHitbox.gameObject.transform.rotation = gameObject.transform.rotation;
             if(comboTimer < 0)
             {
@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
         if (Physics.Raycast(ray, out hit, 6))
         {
-            if (hit.collider.gameObject.tag == "Interactable")
+            if (hit.collider.gameObject.tag == "Interactable" && hit.collider.GetComponent<Interactable>().interactable)
             {
                 interText.SetActive(true);
                 hit.collider.GetComponent<Interactable>().inRange = true;
@@ -89,12 +89,12 @@ public class Player : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit, 100) && hit.collider.gameObject.layer == 9)
             {
-                hit.collider.gameObject.GetComponent<Enemy>().takeDamage(info[8] ? 25 : 15);
+                hit.collider.gameObject.GetComponentInParent<Enemy>().takeDamage(info[8] ? 25 : 15);
                  comboIndex += 1;
                  comboTimer = 1.3f;
                 if (comboIndex == 2)
                 {
-                    hit.collider.gameObject.GetComponent<Enemy>().takeDamage(info[8] ? 45 : 30 * (info[9] ? 1.35f : 1));
+                    hit.collider.gameObject.GetComponentInParent<Enemy>().takeDamage(info[8] ? 45 : 30 * (info[9] ? 1.35f : 1));
                     comboIndex = -1;
                 }
             }
@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
             hitDelay = info[7] ? 0.7f : 1;
             energy = Mathf.Clamp(energy - 10, 0, 100);
         }
-        if (hitLength < (info[0] ? 0.75f : 0.5f) && hitLength > 0.2f)
+        if (hitLength < (info[0] ? 0.8f : 0.6f) && hitLength > 0.2f)
         {
             swordHitbox.gameObject.SetActive(true);
         }
@@ -138,7 +138,7 @@ public class Player : MonoBehaviour
         health -= damage;
         if (health < 0)
         {
-            Destroy(gameObject);
+           // Destroy(gameObject);
         }
     }
 

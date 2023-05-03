@@ -139,7 +139,7 @@ namespace StarterAssets
 		private void CameraRotation()
 		{
 			// if there is an input
-			if (_input.look.sqrMagnitude >= _threshold && !ui.isInMenu)
+			if (_input.look.sqrMagnitude >= _threshold && !ui.isInMenu && !(Time.timeScale == 0))
 			{
 				//Don't multiply mouse input by Time.deltaTime
 				float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
@@ -164,7 +164,7 @@ namespace StarterAssets
 			bool isSprinting = _input.sprint;
             if (isSprinting)
             {
-                player.energy = Mathf.Clamp(player.energy - Time.deltaTime * 20, 0, 100);
+                player.energy = Mathf.Clamp(player.energy - Time.deltaTime * 40, 0, 100);
             }
             if (!canSprint || player.energy == 0)
 			{

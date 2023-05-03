@@ -202,9 +202,9 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -206.92496, y: -175.84149}
-  m_SizeDelta: {x: -446.4033, y: -358.2556}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 193.07504, y: 112.15851}
+  m_SizeDelta: {x: 353.5967, y: 217.74438}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6010934337960432446
 CanvasRenderer:
@@ -543,10 +543,10 @@ RectTransform:
   m_Father: {fileID: 6399496653964532763}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 196.31992, y: -211.64122}
-  m_SizeDelta: {x: -487.6062, y: -465.3313}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -203.68008, y: 76.35878}
+  m_SizeDelta: {x: 312.3938, y: 110.6687}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1205359794853741001
 CanvasRenderer:
@@ -867,8 +867,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press "E" to interact!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

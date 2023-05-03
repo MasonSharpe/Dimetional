@@ -17,13 +17,22 @@ public class Enemy : MonoBehaviour
         maxHealth = health;
         healthBar.maxValue = maxHealth;
         info = player.skillTree.upgradesGotten;
+        nav.isStopped = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         healthBar.value = health;
-        GetComponent<NavMeshAgent>().destination = player.transform.position;
+        nav.destination = player.transform.position;
+        if (Vector3.Distance(player.transform.position, transform.position) < 100 && nav.isStopped)
+        {
+            nav.isStopped = false;
+        }
+        else if(Vector3.Distance(player.transform.position, transform.position) > 100)
+        {
+            nav.isStopped = true;
+        }
     }
 
     public void takeDamage(float damage)
