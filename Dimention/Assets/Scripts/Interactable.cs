@@ -11,6 +11,7 @@ public class Interactable : MonoBehaviour
     public int type = 0;
     public GameObject sceneObject;
     public bool inRange = false;
+    public bool interactable = true;
     void Start()
     {
         
@@ -50,16 +51,15 @@ public class Interactable : MonoBehaviour
                         }
                         break;
                     case 4:
-                    if (player.enemiesInRoom == player.enemiesKilled)
-                    {
-                        sceneObject.gameObject.GetComponent<UI>().openMenu();
-                    }  break;
+                        sceneObject.gameObject.GetComponent<UI>().openMenu(); break;
                     case 5:
                         sceneObject.gameObject.SetActive(true);
                         player.hasSword = true;
                         Destroy(gameObject); break;
                     case 6:
                     player.skillPoints++; break;
+                    case 7:
+                    player.health += 50; break;
                 }
         }
         inRange = false;

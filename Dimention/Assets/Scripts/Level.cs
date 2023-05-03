@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
-    public List<GameObject> skillPoints = new List<GameObject>();
-    public List<GameObject> healthUps = new List<GameObject>();
+    public GameObject skillPoints;
+    public GameObject healthPickups;
     void Start()
     {
-        List<GameObject> temp = skillPoints;
-        for (int i = 0; i < 3; i++)
-        {
 
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
