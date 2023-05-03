@@ -51,7 +51,11 @@ public class Interactable : MonoBehaviour
                         }
                         break;
                     case 4:
-                        sceneObject.gameObject.GetComponent<UI>().openMenu(); break;
+                    if (player.enemiesKilled >= player.enemiesInRoom / 2)
+                    {
+                        sceneObject.gameObject.GetComponent<UI>().openMenu();
+
+                    } break;
                     case 5:
                         sceneObject.gameObject.SetActive(true);
                         player.hasSword = true;

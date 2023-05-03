@@ -21,7 +21,7 @@ public class Pause : MonoBehaviour
         }
         else
         {
-            objective.text = "Power up and find the exit by cutting through enemies!";
+            objective.text = "Kill half the enemies in a room and find the door to proceed!";
         }
     }
 
