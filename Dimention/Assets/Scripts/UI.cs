@@ -15,6 +15,7 @@ public class UI : MonoBehaviour
     void Start()
     {
         skillTree.SetActive(false);
+        GetComponent<Canvas>().enabled = true;
     }
 
     // Update is called once per frame

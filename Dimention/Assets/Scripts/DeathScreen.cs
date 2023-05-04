@@ -10,11 +10,13 @@ public class DeathScreen : MonoBehaviour
     Canvas canvas;
     public Player player;
     public TextMeshProUGUI prestige;
+    public Canvas ui;
     // Start is called before the first frame update
     void Start()
     {
         canvas = GetComponent<Canvas>();
         prestige.text = "+" + player.level + " Prestige Points! Spend them in the Main Menu!";
+        ui.enabled = false;
     }
 
     // Update is called once per frame

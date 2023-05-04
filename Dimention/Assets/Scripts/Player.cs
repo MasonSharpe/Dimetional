@@ -30,8 +30,12 @@ public class Player : MonoBehaviour
     public SkillTree skillTree;
     public int skillPoints = 0;
     bool[] info;
+    public GameManager manager;
+    public DeathScreen deathScreen;
     void Start()
     {
+        manager = GameManager.thisObject.GetComponent<GameManager>();
+        deathScreen.gameObject.SetActive(false);
         info = skillTree.upgradesGotten;
         sword.SetActive(true);
         hasSword = level == 1 ? false : true;
@@ -89,7 +93,7 @@ public class Player : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit, 100) && hit.collider.gameObject.layer == 9)
             {
-                hit.collider.gameObject.GetComponentInParent<Enemy>().takeDamage(info[8] ? 25 : 15);
+                hit.collider.gameObject.GetComponentInParent<Enemy>().takeDamage(info[8] ? 25 : 15 * (manager.saveData.gunLevel * 0.05f + 1));
                  comboIndex += 1;
                  comboTimer = 1.3f;
                 if (comboIndex == 2)
@@ -138,7 +142,8 @@ public class Player : MonoBehaviour
         health -= damage;
         if (health < 0)
         {
-           // Destroy(gameObject);
+            deathScreen.gameObject.SetActive(true);
+            deathScreen.OnDeath();
         }
     }
 
@@ -146,7 +151,7 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.layer == 9)
         {
-            takeDamage(25);
+            takeDamage(other.gameObject.GetComponentInParent<Enemy>().damage);
         }
 
     }
