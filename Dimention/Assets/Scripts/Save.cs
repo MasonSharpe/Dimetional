@@ -7,6 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class Save : MonoBehaviour
 {
     SaveData saveData;
+    GameManager data;
 
     string saveFile;
 
@@ -19,16 +20,17 @@ public class Save : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
-            saveData.x = transform.position.x;
-            saveData.y = transform.position.y;
-            saveData.z = transform.position.z;
+            saveData.prestigePoints = data.prestigePoints;
+            saveData.swordLevel = data.swordLevel;
+            saveData.gunLevel = data.gunLevel;
+            saveData.movementLevel = data.movementLevel;
             WriteFile();
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             ReadFile();
             cc.enabled = false;
-            transform.position = new Vector3(saveData.x, saveData.y, saveData.z);
+            //transform.position = new Vector3(saveData.x, saveData.y, saveData.z);
             cc.enabled = true;
         }
     }
@@ -38,6 +40,7 @@ public class Save : MonoBehaviour
         saveFile = Application.persistentDataPath + "/gamedata.data";
         saveData = new SaveData();
         cc = GetComponent<CharacterController>();
+        data = gameObject.GetComponent<GameManager>();
     }
 
     public void WriteFile()
@@ -62,7 +65,8 @@ public class Save : MonoBehaviour
 
 public class SaveData
 {
-    public float x;
-    public float y;
-    public float z;
+    public int prestigePoints;
+    public int swordLevel;
+    public int gunLevel;
+    public int movementLevel;
 }
