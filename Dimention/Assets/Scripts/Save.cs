@@ -7,7 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class Save : MonoBehaviour
 {
     SaveData saveData;
-    public GameManager data;
+    GameManager data;
 
     string saveFile;
 
@@ -40,6 +40,7 @@ public class Save : MonoBehaviour
         saveFile = Application.persistentDataPath + "/gamedata.data";
         saveData = new SaveData();
         cc = GetComponent<CharacterController>();
+        data = gameObject.GetComponent<GameManager>();
     }
 
     public void WriteFile()
