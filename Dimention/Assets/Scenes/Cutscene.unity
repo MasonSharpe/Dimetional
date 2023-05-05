@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414738, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -156,10 +156,10 @@ RectTransform:
   m_Father: {fileID: 1600796009}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -60.665375, y: -94.59555}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: -610, y: -406}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &451740603
 MonoBehaviour:
@@ -211,9 +211,9 @@ MonoBehaviour:
   m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 36
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -143.10638, y: -229.51654, z: -222.42154, w: -42.57628}
+  m_margin: {x: -221.07767, y: -292.61124, z: -351.0389, w: -73.28177}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -430,6 +430,7 @@ GameObject:
   - component: {fileID: 1600796008}
   - component: {fileID: 1600796007}
   - component: {fileID: 1600796006}
+  - component: {fileID: 1600796010}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -521,6 +522,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1600796010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600796005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2888a37af7c7251448c9a4fe08b36bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 451740603}
+  lines:
+  - do the thinggggggggggggggggggggg
+  - i dare you
 --- !u!1 &1626986034
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,8 +573,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 72.045, y: -48.2674}
-  m_SizeDelta: {x: 204.83, y: 144.5301}
+  m_AnchoredPosition: {x: -4.440094, y: -1.2864075}
+  m_SizeDelta: {x: 51.8599, y: 50.5682}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1626986036
 MonoBehaviour:
