@@ -12,6 +12,7 @@ public class Interactable : MonoBehaviour
     public GameObject sceneObject;
     public bool inRange = false;
     public bool interactable = true;
+    public bool isEnd = false;
     void Start()
     {
         
@@ -47,24 +48,30 @@ public class Interactable : MonoBehaviour
                         if (player.inventory.Contains(item))
                         {
                             player.inventory.Remove(item);
-                            Destroy(gameObject);
-                        }
+                        Destroy(gameObject);
+                    }
                         break;
                     case 4:
-                    if (player.enemiesKilled >= player.enemiesInRoom / 2)
-                    {
-                        sceneObject.gameObject.GetComponent<UI>().openMenu();
-
-                    } break;
+                        break;
                     case 5:
                         sceneObject.gameObject.SetActive(true);
                         player.hasSword = true;
                         Destroy(gameObject); break;
                     case 6:
-                    player.skillPoints++; break;
+                    player.skillPoints++;
+                    Destroy(gameObject); break;
                     case 7:
-                    player.health += 50; break;
+                    player.health += 50;
+                    Destroy(gameObject);  break;
                 }
+            if (isEnd)
+            {
+                if (player.enemiesKilled >= player.enemiesInRoom / 2)
+                {
+                    sceneObject.gameObject.GetComponent<UI>().openMenu();
+
+                }
+            }
         }
         inRange = false;
     }

@@ -43,6 +43,8 @@ public class Player : MonoBehaviour
         fpc = GetComponent<FirstPersonController>();
         sword.SetActive(hasSword ? true : false);
         swordHitbox.gameObject.transform.localScale *= info[4] ? 1.5f : 1;
+        GetComponent<StarterAssetsInputs>().cursorLocked = false;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // Update is called once per frame

@@ -10,11 +10,15 @@ public class GameManager : MonoBehaviour
 {
     public SaveData saveData;
 
+    public bool[] upgradesGotten = { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false };
+
     string saveFile;
 
     FileStream dataStream;
 
     BinaryFormatter converter = new BinaryFormatter();
+
+    
 
     public static GameObject thisObject;
 
