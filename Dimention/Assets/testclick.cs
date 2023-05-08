@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using EZCameraShake;
+//using EZCameraShake;
 public class testclick : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class testclick : MonoBehaviour
         {
             testclick.PlaySound("blastSound");
             magicFlare.Play();
-            CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, 1f);
+            //CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, 1f);
         }   
     }
     public static void PlaySound(string clip)

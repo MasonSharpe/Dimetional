@@ -46,6 +46,20 @@ public class SkillTree : MonoBehaviour
         pointsLeft.text = "Points left: " + points.ToString();
         upgradesGotten = GameManager.thisObject.GetComponent<GameManager>().upgradesGotten;
         Time.timeScale = 0;
+        Button[] buttons = GetComponentsInChildren<Button>();
+        for (int i = 0; i < upgradesGotten.Length; i++)
+        {
+            if (upgradesGotten[i])
+            {
+                for (int j = 0; j < buttons.Length; j++)
+                {
+                    if (buttons[j].buttonIndex == i)
+                    {
+                        buttons[j].gameObject.SetActive(false);
+                    }
+                }
+            }
+        }
     }
 
     // Update is called once per frame

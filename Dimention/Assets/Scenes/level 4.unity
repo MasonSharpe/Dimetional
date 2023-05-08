@@ -25251,6 +25251,11 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 1858715860}
+    - target: {fileID: 5512207142257251683, guid: 9adad22c337e6ea4f8ae49619230841f,
+        type: 3}
+      propertyPath: enemiesInRoom
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 7280350690200318311, guid: 9adad22c337e6ea4f8ae49619230841f,
         type: 3}
       propertyPath: m_RootOrder
