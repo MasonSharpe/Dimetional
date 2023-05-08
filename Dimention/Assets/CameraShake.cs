@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
+    public float elapsed = 0;
     public IEnumerator Shake (float duration, float magnitude)
     {
+        print("g");
         //storing origional pos of camera
         Vector3 originalPos = transform.position;
         // keeping track of how much time has passed since start shake
-        float elapsed = 0.0f;
 
         while (elapsed < duration)
         {
