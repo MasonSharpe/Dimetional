@@ -17,6 +17,7 @@ public class DeathScreen : MonoBehaviour
     {
         canvas = GetComponent<Canvas>();
         prestige.text = "+" + player.level + " Prestige Points! Spend them in the Main Menu!";
+        player.manager.saveData.prestigePoints += player.level;
         ui.enabled = false;
     }
 

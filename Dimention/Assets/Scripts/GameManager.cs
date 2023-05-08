@@ -65,8 +65,9 @@ public class GameManager : MonoBehaviour
 
 public class SaveData
 {
-    public int prestigePoints;
-    public int swordLevel;
-    public int gunLevel;
-    public int movementLevel;
+    public int prestigePoints = 0;
+    public int swordLevel = 1;
+    public int gunLevel = 1;
+    public int movementLevel = 1;
+    public bool hasPlayedOnce = false;
 }

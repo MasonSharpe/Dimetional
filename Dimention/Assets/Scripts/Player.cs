@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     public int comboIndex = 0;
     float comboTimer;
     public GameObject bullet;
-    float bulletSpeed = 40;
+    float bulletSpeed = 100;
     public GameObject sword;
     Animation anim;
     public float health = 100;
@@ -35,8 +35,8 @@ public class Player : MonoBehaviour
     public DeathScreen deathScreen;
     void Start()
     {
-        print("p");
         manager = GameManager.thisObject.GetComponent<GameManager>();
+        manager.saveData.hasPlayedOnce = true;
         deathScreen.gameObject.SetActive(false);
         info = skillTree.upgradesGotten;
         sword.SetActive(true);
@@ -97,9 +97,10 @@ public class Player : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(1) && hitDelay < 0 && hasSword)
         {
-            Enemy enemy = hit.collider.gameObject.GetComponentInParent<Enemy>();
+            
             if (Physics.Raycast(ray, out hit, 100) && hit.collider.gameObject.layer == 9)
             {
+                Enemy enemy = hit.collider.gameObject.GetComponentInParent<Enemy>();
                 enemy.takeDamage(info[8] ? 25 : 15 * (manager.saveData.gunLevel * 0.05f + 1) * (info[11] ? (enemy.timesShot * 0.05f) + 1 : 1) * (info[12] ? 0.85f : 1));
                  comboIndex += 1;
                  comboTimer = 1.3f;
