@@ -43,8 +43,8 @@ public class Player : MonoBehaviour
         fpc = GetComponent<FirstPersonController>();
         sword.SetActive(hasSword ? true : false);
         swordHitbox.gameObject.transform.localScale *= info[4] ? 1.5f : 1;
-        GetComponent<StarterAssetsInputs>().cursorLocked = false;
-        Cursor.lockState = CursorLockMode.None;
+        GetComponent<StarterAssetsInputs>().cursorLocked = true;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -145,6 +145,8 @@ public class Player : MonoBehaviour
         if (health < 0)
         {
             deathScreen.gameObject.SetActive(true);
+            GetComponent<StarterAssetsInputs>().cursorLocked = false;
+            Cursor.lockState = CursorLockMode.None;
             deathScreen.OnDeath();
         }
     }
