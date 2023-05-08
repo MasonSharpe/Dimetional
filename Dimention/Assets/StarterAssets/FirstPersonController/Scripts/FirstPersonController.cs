@@ -164,13 +164,13 @@ namespace StarterAssets
 			bool isSprinting = _input.sprint;
             if (isSprinting)
             {
-                player.energy = Mathf.Clamp(player.energy - Time.deltaTime * 40, 0, 100);
+                player.energy = Mathf.Clamp(player.energy - (Time.deltaTime * 40 * (player.info[15] ? 0.8f : 1)), 0, 100);
             }
             if (!canSprint || player.energy == 0)
 			{
 				isSprinting = false;
 			}
-            float targetSpeed = isSprinting ? SprintSpeed : MoveSpeed * (player.manager.saveData.movementLevel * 0.05f + 1);
+            float targetSpeed = isSprinting ? SprintSpeed : MoveSpeed * (player.manager.saveData.movementLevel * 0.05f + 1) * (player.info[14] ? 1.3f : 1);
 
 			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 

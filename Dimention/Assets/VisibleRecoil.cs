@@ -8,6 +8,7 @@ public class visiblerecoil : MonoBehaviour
     public ParticleSystem magicFlare;
     public Animator animator;
     public AudioClip shootSound;
+    public AudioClip swingSound;
     private void Start()
     {
         
@@ -20,6 +21,11 @@ public class visiblerecoil : MonoBehaviour
             GetComponent<AudioSource>().PlayOneShot(shootSound);
             magicFlare.Play();
             CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, 1f);
+        }
+     if (Input.GetMouseButtonDown(0))
+        {
+            GetComponent<AudioSource>().PlayOneShot(swingSound);
+            CameraShaker.Instance.ShakeOnce(4f, 4f, 45f, 1f);
         }   
     }
     

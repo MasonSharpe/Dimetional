@@ -1,3 +1,4 @@
+using EZCameraShake;
 using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ public class Player : MonoBehaviour
     public GameObject sword;
     Animation anim;
     public float health = 100;
-    bool isCrouched = false;
+    public bool isCrouched = false;
     FirstPersonController fpc;
     public bool hasSword = false;
     public List<string> inventory = new List<string>();
@@ -29,11 +30,12 @@ public class Player : MonoBehaviour
     public int level = 0;
     public SkillTree skillTree;
     public int skillPoints = 0;
-    bool[] info;
+    public bool[] info;
     public GameManager manager;
     public DeathScreen deathScreen;
     void Start()
     {
+        print("p");
         manager = GameManager.thisObject.GetComponent<GameManager>();
         deathScreen.gameObject.SetActive(false);
         info = skillTree.upgradesGotten;
@@ -45,6 +47,7 @@ public class Player : MonoBehaviour
         swordHitbox.gameObject.transform.localScale *= info[4] ? 1.5f : 1;
         GetComponent<StarterAssetsInputs>().cursorLocked = true;
         Cursor.lockState = CursorLockMode.Locked;
+       // GetComponentInChildren<CameraShake>().StartCoroutine(GetComponentInChildren<CameraShake>().Shake(0.4f, 0.5f));
     }
 
     // Update is called once per frame
@@ -56,6 +59,7 @@ public class Player : MonoBehaviour
         energy += Time.deltaTime * 30;
         if (Input.GetMouseButtonDown(0) && hitDelay < 0 && energy != 0 && hasSword)
         {
+           // GetComponentInChildren<CameraShake>().elapsed = 0f;
             energy = Mathf.Clamp(energy - 45, 0, 100);
             swordHitbox.gameObject.transform.rotation = gameObject.transform.rotation;
             if(comboTimer < 0)
@@ -74,7 +78,7 @@ public class Player : MonoBehaviour
             }
             comboIndex += 1;
             hitLength = 1f;
-            hitDelay = 1;
+            hitDelay = info[0] ? 0.7f : 1f;
             comboTimer = 1.3f;
         }
         interText.SetActive(false);
@@ -93,14 +97,15 @@ public class Player : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(1) && hitDelay < 0 && hasSword)
         {
+            Enemy enemy = hit.collider.gameObject.GetComponentInParent<Enemy>();
             if (Physics.Raycast(ray, out hit, 100) && hit.collider.gameObject.layer == 9)
             {
-                hit.collider.gameObject.GetComponentInParent<Enemy>().takeDamage(info[8] ? 25 : 15 * (manager.saveData.gunLevel * 0.05f + 1));
+                enemy.takeDamage(info[8] ? 25 : 15 * (manager.saveData.gunLevel * 0.05f + 1) * (info[11] ? (enemy.timesShot * 0.05f) + 1 : 1) * (info[12] ? 0.85f : 1));
                  comboIndex += 1;
                  comboTimer = 1.3f;
                 if (comboIndex == 2)
                 {
-                    hit.collider.gameObject.GetComponentInParent<Enemy>().takeDamage(info[8] ? 45 : 30 * (info[9] ? 1.35f : 1));
+                    enemy.takeDamage(info[8] ? 45 : 30 * (info[9] ? 1.35f : 1) * (info[11] ? (enemy.timesShot * 0.05f) + 1 : 1) * (info[12] ? 0.85f : 1));
                     comboIndex = -1;
                 }
             }
@@ -111,7 +116,7 @@ public class Player : MonoBehaviour
                  bulletInstance.transform.Translate(new Vector3(0, 1, 0) * 2.7f);
                  Destroy(bulletInstance, 2);
             }
-            hitDelay = info[7] ? 0.7f : 1;
+            hitDelay = info[7] ? 0.7f : 1 * (info[10] ? 0.7f : 1) * (info[12] ? 0.5f : 1);
             energy = Mathf.Clamp(energy - 10, 0, 100);
         }
         if (hitLength < (info[0] ? 0.8f : 0.6f) && hitLength > 0.2f)
@@ -140,14 +145,18 @@ public class Player : MonoBehaviour
 
     public void takeDamage(float damage)
     {
-        damage *= info[5] && hitLength > 0.2f ? 1.5f : 1;
-        health -= damage;
-        if (health < 0)
+        if (Random.value > (info[17] ? 0.25f : -1))
         {
-            deathScreen.gameObject.SetActive(true);
-            GetComponent<StarterAssetsInputs>().cursorLocked = false;
-            Cursor.lockState = CursorLockMode.None;
-            deathScreen.OnDeath();
+            damage *= info[5] && hitLength > 0.2f ? 1.5f : 1;
+            damage = info[19] ? Mathf.Clamp(damage - 5, 1, damage) : damage;
+            health -= damage;
+            if (health < 0)
+            {
+                deathScreen.gameObject.SetActive(true);
+                GetComponent<StarterAssetsInputs>().cursorLocked = false;
+                Cursor.lockState = CursorLockMode.None;
+                deathScreen.OnDeath();
+            }
         }
     }
 
