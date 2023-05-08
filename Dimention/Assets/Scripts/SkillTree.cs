@@ -43,7 +43,8 @@ public class SkillTree : MonoBehaviour
     void Start()
     {
         points = player.GetComponent<Player>().skillPoints;
-        pointsLeft.text = points.ToString();
+        pointsLeft.text = "Points left: " + points.ToString();
+        upgradesGotten = GameManager.thisObject.GetComponent<GameManager>().upgradesGotten;
         Time.timeScale = 0;
     }
 
@@ -86,33 +87,16 @@ public class SkillTree : MonoBehaviour
             switch (index)
             {
             case 0:
-                player.GetComponent<FirstPersonController>().MoveSpeed += 20; break;
-            case 1:
-                player.GetComponent<FirstPersonController>().MoveSpeed += 20; break;
-            case 2:
-                player.GetComponent<FirstPersonController>().MoveSpeed += 20; break;
-            case 3:
-                player.GetComponent<FirstPersonController>().MoveSpeed += 20; break;
-            case 4:
-                player.GetComponent<FirstPersonController>().MoveSpeed += 20; break;
-            case 5:
-                player.GetComponent<FirstPersonController>().MoveSpeed += 20; break;
-            case 6:
-                player.GetComponent<FirstPersonController>().MoveSpeed += 20; break;
-            case 7:
-                player.GetComponent<FirstPersonController>().MoveSpeed += 20; break;
-            case 8:
-                player.GetComponent<FirstPersonController>().MoveSpeed += 20; break;
-            case 9:
-                player.GetComponent<FirstPersonController>().MoveSpeed += 20; break;
-            case 10:
-                player.GetComponent<FirstPersonController>().MoveSpeed += 20; break;
+                 break;
         }
     }
 
     public void nextLevel()
     {
         Time.timeScale = 1;
+        player.GetComponent<StarterAssetsInputs>().cursorLocked = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        GameManager.thisObject.GetComponent<GameManager>().upgradesGotten = upgradesGotten;
         SceneManager.LoadScene("level " + (player.GetComponent<Player>().level + 1).ToString());
     }
 
