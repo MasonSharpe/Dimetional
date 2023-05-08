@@ -2884,8 +2884,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab8353b5ebd32545867da143199a814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultPosInfluence: {x: 0.15, y: 0.15, z: 0.15}
-  DefaultRotInfluence: {x: 1, y: 1, z: 1}
+  DefaultPosInfluence: {x: 0.25, y: 0.25, z: 0.25}
+  DefaultRotInfluence: {x: 0.5, y: 0.5, z: 0.5}
   RestPositionOffset: {x: 0, y: 0, z: 0}
   RestRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &967619610
@@ -4605,7 +4605,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -14247,6 +14247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magicFlare: {fileID: 1695928784}
   animator: {fileID: 0}
+  shootSound: {fileID: 0}
 --- !u!1001 &1726732384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15409,6 +15410,11 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 10763164}
+    - target: {fileID: 7959745768387344081, guid: 483dee256b6162543a20f81f87e9799a,
+        type: 3}
+      propertyPath: shootSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 0dc15c63718ba1141bcc9a5bf500b6f3, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
