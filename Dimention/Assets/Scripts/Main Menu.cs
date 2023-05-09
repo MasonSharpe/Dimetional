@@ -22,7 +22,14 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Cutscene");
+        if (!gameManager.saveData.hasPlayedOnce)
+        {
+            SceneManager.LoadScene("level 1");
+        }
+        else
+        {
+            SceneManager.LoadScene("Cutscene");
+        }
     }
 
     public void Exit()

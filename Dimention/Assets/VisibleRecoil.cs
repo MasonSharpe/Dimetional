@@ -6,7 +6,7 @@ public class visiblerecoil : MonoBehaviour
 {
     // Start is called before the first frame update
     public ParticleSystem magicFlare;
-    public Animator animator;
+    
     public AudioClip shootSound;
     public AudioClip swingSound;
     private void Start()
@@ -25,7 +25,7 @@ public class visiblerecoil : MonoBehaviour
      if (Input.GetMouseButtonDown(0))
         {
             GetComponent<AudioSource>().PlayOneShot(swingSound);
-            CameraShaker.Instance.ShakeOnce(4f, 4f, 45f, 1f);
+            CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, 1f);
         }   
     }
     
