@@ -4119,7 +4119,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e19c2a08db41f0d48afa6cae03fb7ddd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 37
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e19c2a08db41f0d48afa6cae03fb7ddd,
         type: 3}
@@ -14231,7 +14231,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 36
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!114 &1695928786
 MonoBehaviour:
@@ -14246,8 +14246,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   magicFlare: {fileID: 1695928784}
-  animator: {fileID: 0}
   shootSound: {fileID: 0}
+  swingSound: {fileID: 0}
 --- !u!1001 &1726732384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15345,10 +15345,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3433311729789364739, guid: 483dee256b6162543a20f81f87e9799a,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.296
+      objectReference: {fileID: 0}
     - target: {fileID: 6263349121711933949, guid: 483dee256b6162543a20f81f87e9799a,
         type: 3}
       propertyPath: m_RootOrder
       value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6263349121711933949, guid: 483dee256b6162543a20f81f87e9799a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6263349121711933949, guid: 483dee256b6162543a20f81f87e9799a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6263349121711933949, guid: 483dee256b6162543a20f81f87e9799a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6263349121711933949, guid: 483dee256b6162543a20f81f87e9799a,
         type: 3}
@@ -15415,6 +15435,11 @@ PrefabInstance:
       propertyPath: shootSound
       value: 
       objectReference: {fileID: 8300000, guid: 0dc15c63718ba1141bcc9a5bf500b6f3, type: 3}
+    - target: {fileID: 7959745768387344081, guid: 483dee256b6162543a20f81f87e9799a,
+        type: 3}
+      propertyPath: swingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 30c503f87bf96a246a41efd4b35323cc, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
