@@ -19,7 +19,7 @@ public class visiblerecoil : MonoBehaviour
      if (Input.GetMouseButtonDown(1))
         {
             GetComponent<AudioSource>().PlayOneShot(shootSound);
-            magicFlare.Play();
+            //magicFlare.Play();
             CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, 1f);
         }
      if (Input.GetMouseButtonDown(0))

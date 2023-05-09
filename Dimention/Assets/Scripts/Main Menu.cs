@@ -9,9 +9,11 @@ public class MainMenu : MonoBehaviour
     public GameManager gameManager;
     public Canvas prestigeMenu;
     public TextMeshProUGUI prestigeText;
+    public TextMeshProUGUI timeText;
     void Start()
     {
         prestigeMenu.enabled = false;
+        timeText.text = "Best time: " + gameManager.saveData.bestTime.ToString() + " seconds";
     }
 
     // Update is called once per frame
@@ -28,7 +30,7 @@ public class MainMenu : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("level 2");
+            SceneManager.LoadScene("Cutscene");
         }
     }
 

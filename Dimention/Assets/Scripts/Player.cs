@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        manager.currentTime += Time.deltaTime;
         hitLength -= Time.deltaTime;
         hitDelay -= Time.deltaTime;
         comboTimer -= Time.deltaTime;
