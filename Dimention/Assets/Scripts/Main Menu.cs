@@ -22,13 +22,13 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        if (!gameManager.saveData.hasPlayedOnce)
+        if (gameManager.saveData.hasPlayedOnce)
         {
             SceneManager.LoadScene("level 1");
         }
         else
         {
-            SceneManager.LoadScene("Cutscene");
+            SceneManager.LoadScene("level 2");
         }
     }
 
