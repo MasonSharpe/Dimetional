@@ -5974,7 +5974,7 @@ CharacterController:
   m_StepOffset: 0.25
   m_SkinWidth: 0.02
   m_MinMoveDistance: 0
-  m_Center: {x: 0, y: -2.51, z: -7.2}
+  m_Center: {x: 0, y: -2.51, z: 0}
 --- !u!114 &9410351871480280
 MonoBehaviour:
   m_ObjectHideFlags: 0
