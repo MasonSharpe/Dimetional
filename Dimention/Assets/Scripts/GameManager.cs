@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     string saveFile;
 
+    public float currentTime = 0;
+
     FileStream dataStream;
 
     BinaryFormatter converter = new BinaryFormatter();
@@ -70,4 +72,5 @@ public class SaveData
     public int gunLevel = 1;
     public int movementLevel = 1;
     public bool hasPlayedOnce = false;
+    public float bestTime = 0;
 }
