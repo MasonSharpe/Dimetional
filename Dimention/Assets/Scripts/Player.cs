@@ -70,11 +70,11 @@ public class Player : MonoBehaviour
             {
                 swordHitbox.transform.Rotate(0, 0, 90);
                 comboIndex = -1;
-                anim.Play("Swing Combo");
+                anim.Play("Sword Swing");
             }
             else
             {
-                anim.Play("Sword Swing");
+                anim.Play("GreatsSlash");
             }
             comboIndex += 1;
             hitLength = 1f;
