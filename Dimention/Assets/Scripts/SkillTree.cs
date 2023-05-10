@@ -20,7 +20,7 @@ public class SkillTree : MonoBehaviour
         "The Sword deals much more damage on the first hit on an enemy.",//
         "All Sword Combo moves deal more damage.",//
         "Sword hitbox is much much bigger.",//
-        "Take more damage when swinging your sword, but deal much more damage.",
+        "Take more damage when swinging your sword, but deal much more damage.",//
         "Hold down the attack button on the last hit of a combo to do a Cyclone Slash that has a wide attack range.",
         "Increase Gun attack speed.",//
         "Increase Gun damage.",//

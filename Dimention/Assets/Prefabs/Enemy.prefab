@@ -169,8 +169,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5940657, y: 9.433063, z: 3.0532742}
-  m_Center: {x: -0.09368181, y: 4.2165313, z: 2.824307}
+  m_Size: {x: 3.2527256, y: 9.433063, z: 6.422451}
+  m_Center: {x: -0.08148098, y: 4.2165313, z: 1.6756039}
 --- !u!1 &2454800692180272466
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,9 +950,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  damage: 25
   player: {fileID: 0}
   healthBar: {fileID: 1419307103751923302}
   nav: {fileID: 7273802654932202653}
+  timesShot: 0
 --- !u!195 &7273802654932202653
 NavMeshAgent:
   m_ObjectHideFlags: 0

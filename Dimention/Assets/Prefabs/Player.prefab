@@ -42,7 +42,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4063755628631418718}
   - component: {fileID: 8108905636269232818}
-  - component: {fileID: 3388200571794221129}
   m_Layer: 0
   m_Name: UltraGreatSword
   m_TagString: Untagged
@@ -91,21 +90,6 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &3388200571794221129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3688039738723384804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b23fe08c665c51a41b84097e59e48f42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magicFlare: {fileID: 0}
-  shootSound: {fileID: 8300000, guid: 0dc15c63718ba1141bcc9a5bf500b6f3, type: 3}
-  swingSound: {fileID: 8300000, guid: 30c503f87bf96a246a41efd4b35323cc, type: 3}
 --- !u!1 &3775009105441108689
 GameObject:
   m_ObjectHideFlags: 0

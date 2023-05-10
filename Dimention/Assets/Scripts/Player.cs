@@ -33,12 +33,17 @@ public class Player : MonoBehaviour
     public bool[] info;
     public GameManager manager;
     public DeathScreen deathScreen;
+
+
+    private void Awake()
+    {
+        info = skillTree.upgradesGotten;
+    }
     void Start()
     {
         manager = GameManager.thisObject.GetComponent<GameManager>();
         manager.saveData.hasPlayedOnce = true;
         deathScreen.gameObject.SetActive(false);
-        info = skillTree.upgradesGotten;
         sword.SetActive(true);
         hasSword = level == 1 ? false : true;
         anim = GetComponentInChildren<Animation>();
@@ -47,6 +52,7 @@ public class Player : MonoBehaviour
         swordHitbox.gameObject.transform.localScale *= info[4] ? 1.5f : 1;
         GetComponent<StarterAssetsInputs>().cursorLocked = true;
         Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1;
        // GetComponentInChildren<CameraShake>().StartCoroutine(GetComponentInChildren<CameraShake>().Shake(0.4f, 0.5f));
     }
 
@@ -155,6 +161,8 @@ public class Player : MonoBehaviour
             if (health < 0)
             {
                 deathScreen.gameObject.SetActive(true);
+                manager.saveData.prestigePoints += level;
+                manager.WriteFile();
                 GetComponent<StarterAssetsInputs>().cursorLocked = false;
                 Cursor.lockState = CursorLockMode.None;
                 deathScreen.OnDeath();

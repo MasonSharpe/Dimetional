@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     {
         maxHealth = health;
         healthBar.maxValue = maxHealth;
-        info = player.skillTree.upgradesGotten;
+        info = player.info;
         nav.isStopped = true;
     }
 

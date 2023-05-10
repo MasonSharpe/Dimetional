@@ -12,8 +12,10 @@ public class MainMenu : MonoBehaviour
     public TextMeshProUGUI timeText;
     void Start()
     {
+        gameManager = GameManager.thisObject.GetComponent<GameManager>();
         prestigeMenu.enabled = false;
         timeText.text = "Best time: " + gameManager.saveData.bestTime.ToString() + " seconds";
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -61,11 +63,11 @@ public class MainMenu : MonoBehaviour
             switch (stat)
             {
                 case 1:
-                    gameManager.saveData.swordLevel = Mathf.Clamp(gameManager.saveData.swordLevel++, 20, 0); break;
+                    gameManager.saveData.swordLevel = Mathf.Clamp(gameManager.saveData.swordLevel + 1, 0, 20); break;
                 case 2:
-                    gameManager.saveData.gunLevel = Mathf.Clamp(gameManager.saveData.gunLevel++, 20, 0); break;
+                    gameManager.saveData.gunLevel = Mathf.Clamp(gameManager.saveData.gunLevel+ + 1, 0, 20); break;
                 case 3:
-                    gameManager.saveData.movementLevel = Mathf.Clamp(gameManager.saveData.movementLevel++, 20, 0); break;
+                    gameManager.saveData.movementLevel = Mathf.Clamp(gameManager.saveData.movementLevel + 1, 0, 20); break;
             }
             gameManager.saveData.prestigePoints--;
         }
