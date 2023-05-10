@@ -35,13 +35,11 @@ public class Player : MonoBehaviour
     public DeathScreen deathScreen;
 
 
-    private void Awake()
-    {
-        info = skillTree.upgradesGotten;
-    }
+
     void Start()
     {
         manager = GameManager.thisObject.GetComponent<GameManager>();
+        info = manager.upgradesGotten;
         manager.saveData.hasPlayedOnce = true;
         deathScreen.gameObject.SetActive(false);
         sword.SetActive(true);
@@ -108,9 +106,8 @@ public class Player : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 100) && hit.collider.gameObject.layer == 9)
             {
                 Enemy enemy = hit.collider.gameObject.GetComponentInParent<Enemy>();
-                enemy.takeDamage(info[8] ? 25 : 15 * (manager.saveData.gunLevel * 0.05f + 1) * (info[11] ? (enemy.timesShot * 0.05f) + 1 : 1) * (info[12] ? 0.85f : 1));
-                 comboIndex += 1;
-                 comboTimer = 1.3f;
+                enemy.takeDamage(info[8] ? 25 : 15 * (manager.saveData.gunLevel * 0.05f + 1) * (info[11] ? (enemy.timesShot * 0.1f) + 1 : 1) * (info[12] ? 0.85f : 1));
+                enemy.timesShot++;
                 if (comboIndex == 2)
                 {
                     enemy.takeDamage(info[8] ? 45 : 30 * (info[9] ? 1.35f : 1) * (info[11] ? (enemy.timesShot * 0.05f) + 1 : 1) * (info[12] ? 0.85f : 1));
@@ -124,6 +121,8 @@ public class Player : MonoBehaviour
                  bulletInstance.transform.Translate(new Vector3(0, 1, 0) * 2.7f);
                  Destroy(bulletInstance, 2);
             }
+            comboIndex += 1;
+            comboTimer = 1.3f;
             hitDelay = info[7] ? 0.7f : 1 * (info[10] ? 0.7f : 1) * (info[12] ? 0.5f : 1);
             energy = Mathf.Clamp(energy - 10, 0, 100);
         }

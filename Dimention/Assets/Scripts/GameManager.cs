@@ -24,13 +24,7 @@ public class GameManager : MonoBehaviour
 
     public static GameObject thisObject;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            WriteFile();
-        }
-    }
+
 
     public void Loader()
     {

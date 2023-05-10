@@ -170,7 +170,7 @@ namespace StarterAssets
 			{
 				isSprinting = false;
 			}
-            float targetSpeed = isSprinting ? SprintSpeed : MoveSpeed * (player.manager.saveData.movementLevel * 0.05f + 1) * (player.info[14] ? 1.3f : 1);
+            float targetSpeed = (isSprinting ? SprintSpeed : MoveSpeed * (player.info[18] ? 1.5f : 1)) * (player.manager.saveData.movementLevel * 0.05f + 1) * (player.info[14] ? 1.3f : 1);
 
 			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 

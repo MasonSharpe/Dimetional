@@ -24,7 +24,9 @@ public class Cutscene : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "level 6")
         {
             manager = GameManager.thisObject.GetComponent<GameManager>();
-            timeText.text = "Time: " + Mathf.Round(manager.currentTime).ToString() + " seconds";
+            timeText.text = "Time: " + manager.currentTime.ToString() + " seconds";
+            manager.saveData.prestigePoints += 10;
+            manager.WriteFile();
             if (manager.currentTime > manager.saveData.bestTime)
             {
                 manager.saveData.bestTime = manager.currentTime;

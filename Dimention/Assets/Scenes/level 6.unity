@@ -715,10 +715,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 451740603}
+  timeText: {fileID: 1152360983}
   lines:
-  - "\u2018Tis time to awaken from thy finite slumber, my child."
-  - yippee!!!
-  - ok bye
+  - "Mechanical divinity smiles upon thy endurance. Beat\u2019n, the usurper of vile
+    dishonorable, gospel."
+  - "Valiant, o\u2019er the clouds shall ye reside. Yonder light not be daylight,
+    trust in the truth of sleep, o righteous Warrior of the CPU."
+  - Thou art true righteousness, therfore stay yet, until thou art needest, but not
+    to be gone.
+  - Worthy, the divinity deems thee. Do be ready, Arloth, for thou art ready.
 --- !u!1 &1626986034
 GameObject:
   m_ObjectHideFlags: 0

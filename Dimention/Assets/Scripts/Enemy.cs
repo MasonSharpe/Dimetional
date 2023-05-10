@@ -27,11 +27,11 @@ public class Enemy : MonoBehaviour
     {
         healthBar.value = health;
         nav.destination = player.transform.position;
-        if (Vector3.Distance(player.transform.position, transform.position) < 100 && nav.isStopped)
+        if (Vector3.Distance(player.transform.position, transform.position) < 200 && nav.isStopped)
         {
             nav.isStopped = false;
         }
-        else if(Vector3.Distance(player.transform.position, transform.position) > 100)
+        else if(Vector3.Distance(player.transform.position, transform.position) > 200)
         {
             nav.isStopped = true;
         }
@@ -55,6 +55,17 @@ public class Enemy : MonoBehaviour
             damage *= player.comboIndex == 0 ? 1.5f : 1;
             damage = Mathf.Pow(damage, info[5] ? 1.5f : 1);
             takeDamage(damage);
+        }
+        if (other.gameObject.tag == "Bullet")
+        {
+            takeDamage(info[8] ? 25 : 15 * (player.manager.saveData.gunLevel * 0.05f + 1) * (info[11] ? (timesShot * 0.1f) + 1 : 1) * (info[12] ? 0.85f : 1));
+            timesShot++;
+            if (player.comboIndex == 2)
+            {
+                takeDamage(info[8] ? 45 : 30 * (info[9] ? 1.35f : 1) * (info[11] ? (timesShot * 0.05f) + 1 : 1) * (info[12] ? 0.85f : 1));
+                player.comboIndex = -1;
+            }
+            Destroy(other.gameObject);
         }
     }
 }

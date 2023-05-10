@@ -1,3 +1,4 @@
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,12 +11,14 @@ public class MainMenu : MonoBehaviour
     public Canvas prestigeMenu;
     public TextMeshProUGUI prestigeText;
     public TextMeshProUGUI timeText;
+    bool[] defaults = { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false };
     void Start()
     {
         gameManager = GameManager.thisObject.GetComponent<GameManager>();
         prestigeMenu.enabled = false;
         timeText.text = "Best time: " + gameManager.saveData.bestTime.ToString() + " seconds";
         Time.timeScale = 1;
+        gameManager.upgradesGotten = defaults;
     }
 
     // Update is called once per frame

@@ -3111,23 +3111,33 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 480539218065911862, guid: b8acac519e87a974ab7042f331208842,
         type: 3}
+      propertyPath: m_Size.x
+      value: 2.2127323
+      objectReference: {fileID: 0}
+    - target: {fileID: 480539218065911862, guid: b8acac519e87a974ab7042f331208842,
+        type: 3}
       propertyPath: m_Size.y
-      value: 1.0399165
+      value: 1.392807
       objectReference: {fileID: 0}
     - target: {fileID: 480539218065911862, guid: b8acac519e87a974ab7042f331208842,
         type: 3}
       propertyPath: m_Size.z
-      value: 3.2003498
+      value: 3.877943
+      objectReference: {fileID: 0}
+    - target: {fileID: 480539218065911862, guid: b8acac519e87a974ab7042f331208842,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.022274971
       objectReference: {fileID: 0}
     - target: {fileID: 480539218065911862, guid: b8acac519e87a974ab7042f331208842,
         type: 3}
       propertyPath: m_Center.y
-      value: -0.019958258
+      value: 0.15648699
       objectReference: {fileID: 0}
     - target: {fileID: 480539218065911862, guid: b8acac519e87a974ab7042f331208842,
         type: 3}
       propertyPath: m_Center.z
-      value: 0.16529751
+      value: -0.1734991
       objectReference: {fileID: 0}
     - target: {fileID: 480539218065911862, guid: b8acac519e87a974ab7042f331208842,
         type: 3}

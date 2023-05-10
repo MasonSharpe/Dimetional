@@ -19,10 +19,15 @@ public class Pause : MonoBehaviour
         {
             objective.text = "Unlock the door to escape!";
         }
+        else if (player.level == 5)
+        {
+            objective.text = "Defeat the Master Stapler and his minions and escape the facility!";
+        }
         else
         {
             objective.text = "Kill half the enemies in a room and find the door to proceed!";
         }
+            
     }
 
     // Update is called once per frame
